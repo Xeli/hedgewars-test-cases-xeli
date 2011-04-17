@@ -1,0 +1,11 @@
+#!/bin/bash
+
+PPCROSSARM="/media/Storage2/fpc-2.4.2/compiler/ppcrossarm"
+
+FPC_UNITS="/media/Storage2/fpc-2.4.2/rtl/units/arm-linux/"
+CC_DIR="/media/Storage2/CodeSourcery/bin/"
+ANDROID_LIB="/media/Storage2/Android/out/target/product/generic/obj"
+
+$PPCROSSARM -k"-landroidprt0" -vwnh -Xd -XS -Xt -Tlinux -O- -XParm-none-linux-gnueabi- -Fu$FPC_UNITS -FD$CC_DIR -o../libs/armeabi/libHelloJNI.so nl_rmd_pascallib_NativeClass.dpr
+
+#$PPCROSSARM -b -B -Xc -Xd  -Tlinux -O- -XParm-none-linux-gnueabi- -Fl$ANDROID_LIB -Fu$FPC_UNITS -FD$CC_DIR -o../libs/armeabi/libHelloJNI.so hellojni.pas
